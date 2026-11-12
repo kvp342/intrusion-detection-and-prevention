@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Placement Prep</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Home screen: two doors (today's work, the map) and a status strip. Kestrel tokens, as on the roadmap. */
+:root{--surface:#f6f4ef;--raised:#ffffff;--line:#dedad1;--ink:#15181d;--muted:#5b5f66;--brand:#c2410c;--on-brand:#ffffff;--brand-soft:#fbe3d4;
+  --f-display:"Space Grotesk","IBM Plex Sans",system-ui,sans-serif;--f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--surface:#121417;--raised:#1b1e23;--line:#2c3036;--ink:#eeece6;--muted:#a3a7ad;--brand:#f07a3f;--on-brand:#121417;--brand-soft:#3a2116;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);font:400 15px/22px var(--f-sans);-webkit-font-smoothing:antialiased}
+main{max-width:880px;margin:0 auto;padding:max(32px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:24px}
+h1,h2,p,dl,dd{margin:0}
+h1{font:600 clamp(30px,6vw,44px)/1.08 var(--f-display);letter-spacing:-.02em;text-wrap:balance}
+h2{font:600 20px/26px var(--f-display)}
+.label{font:500 11px/16px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.now{border:1px solid var(--line);border-radius:8px;background:var(--raised);padding:16px;display:grid;gap:8px}
+.badge{justify-self:start;display:inline-flex;align-items:center;gap:6px;font:500 11px/16px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--brand-soft)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.door{display:grid;gap:8px;align-content:start;border:1px solid var(--line);border-radius:8px;background:var(--raised);padding:20px;color:inherit;text-decoration:none}
+.door:hover{border-color:var(--ink)}
+.door .go{justify-self:start;margin-top:8px;font:600 13px/1 var(--f-sans);border-radius:8px;padding:10px 12px;border:1px solid var(--line)}
+.door.primary .go{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-top:1px solid var(--line);padding-top:16px}
+.facts dt{font:500 11px/16px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts dd{font:500 15px/22px var(--f-sans)}
+.facts b{font:600 22px/28px var(--f-display);margin-right:6px}
+.tip{border-top:1px solid var(--line);padding-top:16px;font-size:13px;line-height:20px;color:var(--muted);max-width:70ch}
+#install{font:600 13px/1 var(--f-sans);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;justify-self:start}
+@media (max-width:640px){.doors,.facts{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<main>
+  <header style="display:grid;gap:8px">
+    <p class="label">RAIT · CSE (Cybersecurity) · Class of 2028</p>
+    <h1>Placement prep</h1>
+    <p class="muted">The daily playbook and the full roadmap, in one app that works offline.</p>
+  </header>
+
+  <section class="now" aria-live="polite">
+    <span class="badge" id="phase-badge">Now</span>
+    <h2 id="phase-title">Village week</h2>
+    <p id="phase-text"></p>
+  </section>
+
+  <nav class="doors" aria-label="Open">
+    <a class="door primary" href="playbook.html#today">
+      <p class="label">Every day</p>
+      <h2>Playbook</h2>
+      <p class="muted">Today's problems, ticks, XP, ranks and badges. Lessons for C++, Striver, Core CS, cyber, AWS and AI. Five themes: Space, Café, Night café, Garden and Professional.</p>
+      <span class="go">Open today's plan</span>
+    </a>
+    <a class="door" href="roadmap.html">
+      <p class="label">The map</p>
+      <h2>Roadmap</h2>
+      <p class="muted">Timeline to June 2028, week-by-week and day-by-day plan, milestones, the intensive track, how to learn faster, and the off-campus system.</p>
+      <span class="go">Open the roadmap</span>
+    </a>
+  </nav>
+
+  <dl class="facts">
+    <div><dt>Placement season opens</dt><dd id="f-place">–</dd></div>
+    <div><dt>Plan day</dt><dd id="f-day">–</dd></div>
+    <div><dt>Progress saved</dt><dd>In this browser</dd></div>
+  </dl>
+
+  <button type="button" id="install" hidden>Install this app</button>
+  <p class="tip">Progress is stored in this browser on this device. Back it up now and then from the playbook, Part 09, "Back up and move your progress". To move from Claude: export there, then import here.</p>
+</main>
+<script>
+(function(){
+  var D=function(s){var p=s.split("-").map(Number);return new Date(p[0],p[1]-1,p[2])};
+  var n=new Date(),today=new Date(n.getFullYear(),n.getMonth(),n.getDate()),days=function(a,b){return Math.round((b-a)/864e5)};
+  var P=[["2026-11-07","Village week","On your phone, an hour a day: Learn C++ at 2×, Time complexity and the Patterns lessons. Write code in a notebook."],
+    ["2026-11-16","C++ and STL","Day 1: drills and D1-1 to D1-10. Day 2: STL drills, recursion, complexity, and the gate test from 7 to 9 PM."],
+    ["2026-11-18","DSA heavy","Striver first, 5 to 6 new problems in sheet order. Then LeetCode on the same topic, Core CS, AWS and cyber."],
+    ["2026-12-14","Semester starts","College 1 to 2 days a week. Keep Striver daily; use college days for revision, Core CS and AWS."],
+    ["2027-01-04","Build phase","Finish Striver, then the Hard pass, AI projects and internship applications."],
+    ["2027-03-22","Semester exams","Minimum day only: revision, 2 problems, 1 LeetCode problem."],
+    ["2027-04-08","Certify and ship","Finish what paused, sit the AWS exam, build the capstone."],
+    ["2027-06-01","Placement sprint","Revise Striver, timed tests, a mock interview every week."],
+    ["2027-08-01","Final placements","On-campus drives, plus off-campus applications and referrals every week."],
+    ["2028-01-01","Final year","Final-year project, a second certification, and off-campus applications if needed."]];
+  var cur=P[0];P.forEach(function(p){if(today>=D(p[0]))cur=p});
+  document.getElementById("phase-title").textContent=cur[1];document.getElementById("phase-text").textContent=cur[2];
+  var pd=days(today,D("2027-08-01"));document.getElementById("f-place").innerHTML=pd>0?"<b>"+pd+"</b>days":"<b>Open</b>";
+  var d=days(D("2026-11-05"),today)+1;document.getElementById("f-day").innerHTML=d<1?"Starts 16 Nov":(d>144?"Plan complete":"<b>"+d+"</b>of 144");
+  var ev=null,btn=document.getElementById("install");
+  addEventListener("beforeinstallprompt",function(e){e.preventDefault();ev=e;btn.hidden=false});
+  btn.addEventListener("click",function(){if(ev){ev.prompt();ev=null;btn.hidden=true}});
+  if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});
+})();
+</script>
+</body>
+</html>
